@@ -190,7 +190,7 @@ func (t Template) Display(w http.ResponseWriter) error {
 		return nil
 	}
 
-	err := tmpl.HtmlTemplate.Execute(t.Writer, t.Bag)
+	err := t.HtmlTemplate.Execute(t.Writer, t.Bag)
 	if err != nil {
 		log.Println(err)
 	}
