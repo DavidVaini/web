@@ -34,6 +34,7 @@ func CreateTemplate(w http.ResponseWriter) (templ *Template, err error) {
 		Bag:     make(map[string]interface{}),
 		FuncMap: template.FuncMap{},
 	}
+	SetTemplate(templ)
 
 	return
 }
