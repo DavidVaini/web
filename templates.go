@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 var (
@@ -143,8 +144,12 @@ func (t *Template) ParseFile(file string, override bool) error {
 	}
 	var tmpl *template.Template
 	if t.HtmlTemplate == nil {
+		name := ""
+		if nameArr := strings.Split(file, "/"); len(nameArr) > 0 {
+			name = nameArr[len(nameArr)-1]
+		}
 
-		tmpl, err = template.New(file).Funcs(t.FuncMap).ParseFiles(dir + "/" + file)
+		tmpl, err = template.New(name).Funcs(t.FuncMap).ParseFiles(dir + "/" + file)
 		if err != nil {
 			return err
 		}
