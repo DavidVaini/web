@@ -1,4 +1,4 @@
-module github.com/curt-labs/web
+module github.com/DavidVaini/web
 
 go 1.16
 
